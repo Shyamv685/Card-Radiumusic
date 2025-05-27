@@ -284,6 +284,7 @@ color: #ffee00;
 
 
 <script>
+  
   const audio = document.getElementById('myAudio');
   const card = document.querySelector('.card');
   const image = document.querySelector('.image'); // your image
@@ -303,7 +304,16 @@ color: #ffee00;
     card.classList.remove('spinning'); // Stop card RGB spin
     image.classList.remove('zoom'); // Stop image shake
  
-  }
+  }   audio.addEventListener('ended', () => {
+  card.classList.remove('spinning'); // Stop card RGB spin
+  image.classList.remove('zoom');    // Stop image animation
+});
+
+    // Automatically stop RGB when audio ends
+  audio.addEventListener('ended', () => {
+    card.classList.remove('spinning');
+    image.classList.remove('zoom');
+  });
 </script>
 
 
